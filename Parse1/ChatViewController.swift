@@ -30,11 +30,14 @@ class ChatViewController: UIViewController {
             }
             
             print("Posted message: \(self.messageField.text) from \(user)")
+            self.messageField.text = ""
         }
     }
     
     func loadMessages() {
-        let query = PFQuery(className: "Message_Swift_032016").includeKey("user")
+        let query = PFQuery(className: "Message_Swift_032016")
+        query.orderByDescending("createdAt")
+        query.includeKey("user")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             guard let objects = objects else {
                 print("Error: \(error!.description)")
