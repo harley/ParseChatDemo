@@ -152,7 +152,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bkl-Uw-DtJ" firstAttribute="leading" secondItem="UQd-zm-YMx" secondAttribute="leading" id="FTP-TL-jvH"/>
                             <constraint firstItem="SlL-5Y-bGc" firstAttribute="leading" secondItem="UQd-zm-YMx" secondAttribute="leading" constant="8" id="Igp-pE-SsS"/>
