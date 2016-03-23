@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class ChatViewController: UIViewController {
-    var user: PFUser!
     var messages: [PFObject]?
     
     @IBOutlet weak var logoutButtonItem: UIBarButtonItem!
@@ -18,11 +17,11 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageField: UITextField!
     
     @IBAction func sendAction(sender: UIButton) {
-        let message = PFObject(className: "Message")
+        let message = PFObject(className: "Message_Swift_032016")
+        let user = PFUser.currentUser()
         
         message["body"] = messageField.text!
         message["user"] = user
-        
         
         message.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             guard succeeded else {
@@ -30,15 +29,15 @@ class ChatViewController: UIViewController {
                 return
             }
             
-            print("Posted message: \(self.messageField.text) from \(self.user)")
+            print("Posted message: \(self.messageField.text) from \(user)")
         }
     }
     
     func loadMessages() {
-        let query = PFQuery(className: "Message")
+        let query = PFQuery(className: "Message_Swift_032016").includeKey("user")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             guard let objects = objects else {
-                print("Error: \(error)")
+                print("Error: \(error!.description)")
                 return
             }
             

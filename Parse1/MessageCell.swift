@@ -12,9 +12,11 @@ import Parse
 class MessageCell: UITableViewCell {
     var message: PFObject! {
         didSet {
-            bodyLabel.text = message["body"] as? String
+            bodyLabel.text = message["body"] as? String ?? "<empty>"
             if let user = message["user"] as? PFUser {
                 senderLabel.text = user.username
+            } else {
+                senderLabel.text = "<anonymous>"
             }
         }
     }

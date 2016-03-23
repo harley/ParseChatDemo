@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class LoginViewController: UIViewController {
-    var user: PFUser!
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -22,12 +21,10 @@ class LoginViewController: UIViewController {
     }
     func login() {
         PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordField.text!) { (user: PFUser?, error: NSError?) -> Void in
-            guard let user = user else {
+            guard error == nil else {
                 self.displayMessage(error!.userInfo["error"] as! String)
                 return
             }
-            
-            self.user = user
             self.performSegueWithIdentifier("loginSegue", sender: self)
         }
     }
@@ -40,7 +37,7 @@ class LoginViewController: UIViewController {
     }
     
     func signup() {
-        user = PFUser()
+        let user = PFUser()
         user.username = usernameTextField.text
         user.password = passwordField.text
         
@@ -53,7 +50,7 @@ class LoginViewController: UIViewController {
             }
             
             // Hooray! Let them use the app now.
-            print("hooray: \(self.user.username)")
+            print("hooray: \(user.username)")
             self.performSegueWithIdentifier("loginSegue", sender: self)
         }
     }
@@ -66,8 +63,13 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        if let user = PFUser.currentUser() {
+            print("Current user: \(user)")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,10 +78,8 @@ class LoginViewController: UIViewController {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nvc = segue.destinationViewController as! UINavigationController
-        let vc = nvc.topViewController as! ChatViewController
-        vc.title = user.username
-        vc.user = user
-    }
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //        let nvc = segue.destinationViewController as! UINavigationController
+    //        let vc = nvc.topViewController as! ChatViewController
+    //    }
 }
