@@ -124,10 +124,19 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1m ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcj-wJ-68h">
+                                                    <rect key="frame" x="271.5" y="51" width="40.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bcj-wJ-68h" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X7S-DZ-aWu" secondAttribute="bottom" constant="8" id="34R-nQ-b3o"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aoQ-02-kUm" secondAttribute="trailing" constant="8" id="99j-7w-dEf"/>
                                                 <constraint firstItem="aoQ-02-kUm" firstAttribute="top" secondItem="gxa-UO-TFh" secondAttribute="top" constant="8" id="CVQ-HB-HZf"/>
+                                                <constraint firstAttribute="bottom" secondItem="bcj-wJ-68h" secondAttribute="bottom" constant="8" id="HKy-fP-VRa"/>
+                                                <constraint firstAttribute="trailing" secondItem="bcj-wJ-68h" secondAttribute="trailing" constant="8" id="UZ6-99-Tfa"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aoQ-02-kUm" secondAttribute="bottom" constant="8" id="Ue7-Ij-vn4"/>
                                                 <constraint firstItem="X7S-DZ-aWu" firstAttribute="top" secondItem="gxa-UO-TFh" secondAttribute="top" constant="8" id="aI2-L9-8XX"/>
                                                 <constraint firstAttribute="trailing" secondItem="X7S-DZ-aWu" secondAttribute="trailing" constant="8" id="aTG-Xv-nLq"/>
@@ -137,6 +146,7 @@
                                         <connections>
                                             <outlet property="bodyLabel" destination="aoQ-02-kUm" id="wF6-BN-XNQ"/>
                                             <outlet property="senderLabel" destination="X7S-DZ-aWu" id="34u-p6-iig"/>
+                                            <outlet property="timeAgoLabel" destination="bcj-wJ-68h" id="ey1-bb-rOW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

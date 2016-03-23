@@ -20,7 +20,7 @@ class ChatViewController: UIViewController {
         let message = PFObject(className: "Message_Swift_032016")
         let user = PFUser.currentUser()
         
-        message["body"] = messageField.text!
+        message["text"] = messageField.text!
         message["user"] = user
         
         message.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in

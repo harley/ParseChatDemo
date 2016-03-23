@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Parse1/Bolts.framework"
+  install_framework "Pods-Parse1/NSDate_TimeAgo.framework"
   install_framework "Pods-Parse1/Parse.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Parse1/Bolts.framework"
+  install_framework "Pods-Parse1/NSDate_TimeAgo.framework"
   install_framework "Pods-Parse1/Parse.framework"
 fi

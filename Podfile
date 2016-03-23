@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'Parse1' do
     pod 'Parse'
+    pod 'NSDate+TimeAgo'
 end
 

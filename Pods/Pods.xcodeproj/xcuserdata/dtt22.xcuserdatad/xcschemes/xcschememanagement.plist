@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NSDate+TimeAgo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58C8946378F70CD8EB957B9DD79E6E0E</key>
+		<key>524F3AA8BB891D04E2737D464FF8E5B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C8BBB39BBF70BCA486BBC727E1A4A7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
