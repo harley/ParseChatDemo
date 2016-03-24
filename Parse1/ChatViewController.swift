@@ -38,15 +38,14 @@ class ChatViewController: UIViewController {
         let query = PFQuery(className: "Message_Swift_032016")
         query.orderByDescending("createdAt")
         query.includeKey("user")
+        query.whereKey("text", notEqualTo: "")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             guard let objects = objects else {
                 print("Error: \(error!.description)")
                 return
             }
-            
-            print("loaded \(objects.count) messages")
+
             self.messages = objects
-            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.tableView.reloadData()
             })

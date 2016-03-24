@@ -82,4 +82,8 @@ class LoginViewController: UIViewController {
     //        let nvc = segue.destinationViewController as! UINavigationController
     //        let vc = nvc.topViewController as! ChatViewController
     //    }
+    
+    @IBAction func logoutUnwind(segue: UIStoryboardSegue) {
+        PFUser.logOut()
+    }
 }
